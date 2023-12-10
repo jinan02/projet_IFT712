@@ -1,5 +1,9 @@
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
+from src.Classify_Data import Classify_Data
+from sklearn.model_selection import learning_curve
+
 
 class Visualize_Results:  
     def __init__(self): 
@@ -66,4 +70,29 @@ class Visualize_Results:
             plt.xticks(rotation = 45, ha='right')
             plt.show()
 
-  
+    def plot_learning_curve(self, X_train, y_train, six_classifiers, scoring ='accuracy' ): 
+        for classifier_dict in six_classifiers:  
+            classifier = classifier_dict['classifier']
+            train_sizes, train_scores, test_scores = learning_curve(
+                classifier, X_train, y_train, scoring = scoring, n_jobs=-1)
+
+            train_scores_mean = train_scores.mean(axis=1)
+            train_scores_std = train_scores.std(axis=1)
+            test_scores_mean = test_scores.mean(axis=1)
+            test_scores_std = test_scores.std(axis=1)
+
+            plt.figure()
+            plt.title(f"Learning Curve for {classifier_dict['model']}")
+            plt.xlabel("Training examples")
+            plt.ylabel(scoring.capitalize())
+            plt.grid()
+
+            plt.fill_between(train_sizes, train_scores_mean - train_scores_std,
+                             train_scores_mean + train_scores_std, alpha=0.1, color="r")
+            plt.fill_between(train_sizes, test_scores_mean - test_scores_std,
+                             test_scores_mean + test_scores_std, alpha=0.1, color="g")
+            plt.plot(train_sizes, train_scores_mean, 'o-', color="r", label="Training score")
+            plt.plot(train_sizes, test_scores_mean, 'o-', color="g", label="Cross-validation score")
+
+            plt.legend(loc="best")
+            plt.show()
