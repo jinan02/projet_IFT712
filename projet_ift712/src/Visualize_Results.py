@@ -74,7 +74,7 @@ class Visualize_Results:
         for classifier_dict in six_classifiers:  
             classifier = classifier_dict['classifier']
             train_sizes, train_scores, test_scores = learning_curve(
-                classifier, X_train, y_train, scoring = scoring, n_jobs=-1)
+                classifier, X_train, y_train, scoring = scoring, n_jobs=-1, cv=5)
 
             train_scores_mean = train_scores.mean(axis=1)
             train_scores_std = train_scores.std(axis=1)
@@ -83,8 +83,8 @@ class Visualize_Results:
 
             plt.figure()
             plt.title(f"Learning Curve for {classifier_dict['model']}")
-            plt.xlabel("Training examples")
-            plt.ylabel(scoring.capitalize())
+            plt.xlabel("Samples")
+            plt.ylabel(scoring)
             plt.grid()
 
             plt.fill_between(train_sizes, train_scores_mean - train_scores_std,
@@ -92,7 +92,7 @@ class Visualize_Results:
             plt.fill_between(train_sizes, test_scores_mean - test_scores_std,
                              test_scores_mean + test_scores_std, alpha=0.1, color="g")
             plt.plot(train_sizes, train_scores_mean, 'o-', color="r", label="Training score")
-            plt.plot(train_sizes, test_scores_mean, 'o-', color="g", label="Cross-validation score")
+            plt.plot(train_sizes, test_scores_mean, 'o-', color="g", label="Test score")
 
             plt.legend(loc="best")
             plt.show()
