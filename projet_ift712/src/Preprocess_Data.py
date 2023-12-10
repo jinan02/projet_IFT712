@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler, LabelEncoder
-from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.model_selection import train_test_split
 
 class Preprocess_Data: 
     def __init__(self, path): 
@@ -24,11 +24,8 @@ class Preprocess_Data:
         return encoded_labels
 
     def Split_data(self, df, target): 
-        X = df.drop(target, axis =1)
-        y = df[target]
-        stratified = StratifiedShuffleSplit(n_splits=10, test_size=0.33, random_state=42)
-        for train_index, test_index in stratified.split(X, y):  
-            X_train, X_test = X[train_index], X[test_index]
-            y_train, y_test = y[train_index], y[test_index]
+        features = df.drop(target, axis =1)
+        targets = df[target]
+        X_train, X_test, y_train, y_test = train_test_split(features, targets, test_size = 0.33, random_state=42, stratify = targets)
         return X_train, X_test, y_train, y_test
     
