@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from src.Classify_Data import Classify_Data
 from sklearn.model_selection import learning_curve
+from sklearn.decomposition import PCA
 
 
 class Visualize_Results:  
@@ -96,3 +97,16 @@ class Visualize_Results:
 
             plt.legend(loc="best")
             plt.show()
+            
+
+    def plot_explained_variance(self, data):
+        pca = PCA()
+        pca.fit(data)
+        explained_variance = pca.explained_variance_ratio_
+
+        # Plot the explained variance
+        plt.plot(np.cumsum(explained_variance))
+        plt.xlabel('Number of Components')
+        plt.ylabel('Explained Variance')
+        plt.title('Elbow Method for Optimal Number of Components')
+        plt.show()
