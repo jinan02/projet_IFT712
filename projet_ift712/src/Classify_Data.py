@@ -105,7 +105,7 @@ class Classify_Data:
             six_classifiers: List of our six classifiers (In our case they're six, could be more)
 
         Returns: 
-            evaluation_results: dictionnary that assciate each classifier to its calculated metrics
+            evaluation_results: dictionnary that associate each classifier to its calculated metrics
         """
         evaluation_results = {}
 
