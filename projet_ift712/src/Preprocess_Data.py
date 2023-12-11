@@ -6,7 +6,7 @@ from sklearn.decomposition import PCA
 class Preprocess_Data: 
     def __init__(self, path): 
         """
-        Constructor for the Visualize_Results class
+        Constructor for the Preprocess_Data class
         """
         self.path = path
         self.data = None
