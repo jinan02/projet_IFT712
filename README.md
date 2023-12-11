@@ -17,7 +17,7 @@ Requirements
 --------
 '''
 pip install -r projet_ift712/requirements.txt
-'''
+
 
 
 Authors
