@@ -1,16 +1,29 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from src.Classify_Data import Classify_Data
 from sklearn.model_selection import learning_curve
 from sklearn.decomposition import PCA
 
 
 class Visualize_Results:  
     def __init__(self): 
+        """
+        Constructor for the Visualize_Results class
+        """
         pass
     
     def plot_training_scores(self, best_scores, six_classifiers):
+        """
+        plot the accuracy scores after training for each model
+
+        Args: 
+            best_scores: list containing the best score for each classifier
+            six_classifiers: list of our classifiers
+
+        Returns: 
+            None: generates a plot
+
+        """
         classifier_names = [classifier['model'] for classifier in six_classifiers]
         df_scores = pd.DataFrame({"model": classifier_names, "score": best_scores})
         plt.figure(figsize=(10,6))
@@ -25,40 +38,17 @@ class Visualize_Results:
         plt.tight_layout
 
         plt.show()
-    
-    '''def calculate_metrics(self, y_test, y_pred):
-        metrics = {}
-
-        metrics['accuracy'] = accuracy_score(y_test, y_pred, average ="weighted")
-        metrics['recall'] = recall_score(y_test, y_pred, average ="weighted")
-        metrics['precision'] = precision_score(y_test, y_pred, average ="weight")
-        metrics['f1_score'] = f1_score(y_test, y_pred, average ="weight")
-
-        return metrics'''
-    
-    '''def plot_evaluation_results(self, six_classifiers, evaluation_results): 
-        classifier_names = [classifier['model'] for classifier in six_classifiers]
-        df = pd.DataFrame(evaluation_results, index = classifier_names)
-
-        fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(12, 10))
-        fig.suptitle('Comparision of Evaluation Results')
-
-        df['precision'].plot (kind = 'bar', ax=axes[0,0], title = 'Precision')
-        axes[0, 0].set_ylabel('Precision Score')
-
-        df['recall'].plot (kind = 'bar', ax=axes[0,1], title = 'Recall')
-        axes[0, 1].set_ylabel('Recall Score')
-
-        df['accuracy'].plot (kind = 'bar', ax=axes[0,0], title = 'Accuracy')
-        axes[1, 0].set_ylabel('Accuracy Score')
-
-        df['f1 score'].plot (kind = 'bar', ax=axes[0,0], title = 'F1 Score')
-        axes[1, 1].set_ylabel('F1 Score')
-
-        plt.tight_layout(rect=[0,0,1,0.96])
-        plt.show() '''
 
     def plot_evaluation_results(self, evaluation_results): 
+        """ 
+        Plot all the metrics results for each classifier
+
+        Args: 
+            evaluation_results: dictionnary containing each classifier with its calculated metrics
+        
+        Returns: 
+            None: generates a plot
+        """
         df = pd.DataFrame(evaluation_results).transpose()
 
         for metric in df.columns: 
@@ -71,7 +61,19 @@ class Visualize_Results:
             plt.xticks(rotation = 45, ha='right')
             plt.show()
 
-    def plot_learning_curve(self, X_train, y_train, six_classifiers, scoring ='accuracy' ): 
+    def plot_learning_curve(self, X_train, y_train, six_classifiers, scoring ='accuracy'): 
+        """
+        Plot the training and the test curve together based on the accuracy scores
+
+        Args: 
+            X_train: features used to train the model
+            y_train: labels used to train the model
+            six_classifiers: list of our classifiers
+            scoring: metric that we'll use to plot our curves
+
+        Returns: 
+            None: generates a plot  
+        """
         for classifier_dict in six_classifiers:  
             classifier = classifier_dict['classifier']
             train_sizes, train_scores, test_scores = learning_curve(
@@ -100,6 +102,15 @@ class Visualize_Results:
             
 
     def plot_explained_variance(self, data):
+        """
+        Plot the cumulative expalined variance for different numbers of components
+
+        Args: 
+            data: the datarame we're working with
+        
+        Returns: 
+            None: generates a plot
+        """
         pca = PCA()
         pca.fit(data)
         explained_variance = pca.explained_variance_ratio_
