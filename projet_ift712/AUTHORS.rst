@@ -5,9 +5,9 @@ Credits
 Development Lead
 ----------------
 
-* Jinane Boufaris <boufaris.jinane@gmail.com>
+* Jinane Boufaris <Jinane.Boufaris@Usherbrooke.ca>
 
 Contributors
 ------------
-
-None yet. Why not be the first?
+* Abir Jamaly <Abir.Jamaly@Usherbrooke.ca>
+* Hamza Boussairi <Hamza.Boussairi@Usherbrooke.ca>
