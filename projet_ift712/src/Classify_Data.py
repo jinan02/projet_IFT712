@@ -35,7 +35,6 @@ class Classify_Data:
                     sk_classifiers.append(clf)
                     
         return sk_classifiers
-        #return clf
     
     def train_classifier(self, X_train, y_train, classifiers, metric = "accuracy", fold_number=5): 
         """
