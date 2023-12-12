@@ -145,13 +145,7 @@ jupyter notebook projet.ipynb
 
 ## Collaboration
 
-Nous sommes reconnaissants envers les contributeurs qui ont déjà participé à ce projet. Voici une liste des contributeurs actuels :
 
-1. **Abir Jamaly**
-2. **Jinane Boufaris**
-3. **Hamza Boussairi**
-   
-Merci à eux pour leurs efforts et leur engagement envers l'amélioration continue de ce projet.
 Nous encourageons vivement la collaboration et les contributions à ce projet. Si vous souhaitez participer, voici quelques lignes directrices pour une collaboration harmonieuse :
 
 ### Comment Contribuer
@@ -175,21 +169,6 @@ Nous encourageons vivement la collaboration et les contributions à ce projet. S
 5. **Testez Localement :** Avant de soumettre une demande de fusion, assurez-vous que votre code fonctionne correctement localement.
 
 6. **Soumettez une Pull Request :** Lorsque vous êtes prêt, soumettez une pull request (PR) depuis votre branche vers le dépôt principal. Expliquez clairement les changements que vous avez apportés et pourquoi ils sont nécessaires.
-
-### Normes de Contribution
-
-- Suivez les normes de codage du projet. Consultez le fichier `.editorconfig` pour les configurations d'éditeur recommandées.
-- Documentez tout nouveau code ou modification apportée.
-- Ajoutez des tests si nécessaire pour garantir la stabilité du code.
-- Respectez les règles de versionnement sémantique pour les changements dans le code.
-
-### Problèmes et Demandes d'Améliorations
-
-Si vous identifiez des problèmes ou si vous avez des suggestions d'améliorations, n'hésitez pas à créer une issue. Nous sommes ouverts à l'amélioration continue de ce projet.
-
-Nous vous remercions pour votre intérêt et votre contribution à faire de ce projet un succès collaboratif !
-
-
 
 
 
