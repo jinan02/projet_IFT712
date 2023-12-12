@@ -114,7 +114,7 @@ L'évaluation de la performance des modèles de classification repose sur plusie
 
    ```bash
    # Clonez le dépôt GitHub
-   git clone [https://github.com/jinan02/projet_ift712](https://github.com/jinan02/projet_ift712)
+   git clone (https://github.com/jinan02/projet_ift712)
    cd nom-du-projet
    
    # Créez un environnement virtuel (optionnel, mais recommandé)
