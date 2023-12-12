@@ -27,7 +27,6 @@ ce projet vise à résoudre le défi de classification des feuilles en exploitan
     ├── LICENSE
     ├── AUTHORS.rst
     ├── .editorconfig
-    ├── Makefile
     ├── .travis.yml
     ├── .gitignore
     └── README.md
@@ -52,8 +51,6 @@ La structure du projet est organisée comme suit :
 - **AUTHORS.rst** : Fichier listant les auteurs du projet.
 
 - **.editorconfig** : Fichier de configuration pour les éditeurs de texte.
-
-- **Makefile** : Fichier utilisé pour automatiser des tâches dans le projet.
 
 - **.travis.yml** : Fichier de configuration pour l'intégration continue avec Travis CI.
 
